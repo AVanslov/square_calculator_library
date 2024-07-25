@@ -3,6 +3,7 @@ FIGURE_TYPES = (
     'circle',
     'ellipse',
     'rectangle',
-    'rectangular triangle'
+    'rectangular triangle',
     'trapezoid',
+    'triangle',
 )

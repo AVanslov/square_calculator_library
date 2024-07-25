@@ -1,5 +1,5 @@
-import constants as c
-import exception_messages as m
+from . import constants as c
+from . import exception_messages as m
 
 
 class Square:
@@ -82,7 +82,7 @@ class Square:
 
     def triangle(self):
         params = self.get_attributes()
-        self.figure_type = 'triangle'
+        self.figure_type = c.FIGURE_TYPES[5]
         half_perimeter = sum(params) / 2
         return (
             half_perimeter
@@ -114,7 +114,7 @@ class Square:
 
     def trapezoid(self):
         self.figure_type = 'trapezoid'
-        return 0.5 * sum(self.get_attributes())*self.trapezoid_h
+        return 0.5 * sum(self.get_attributes()) * self.trapezoid_h
 
     def calculate(self) -> float:
         attrs_count = self.count_attributes()
@@ -130,17 +130,17 @@ class Square:
                     result = self.rectangular_triangle()
                 else:
                     result = self.triangle()
-        elif self.figure_type == c.FIGURE_TYPES[0]:
+        elif self.figure_type == c.FIGURE_TYPES[1]:
             if attrs_count == 2:
                 result = self.ellipse()
             else:
                 raise Exception(m.TWO_ARGS_REQUIRED)
-        elif self.figure_type == c.FIGURE_TYPES[1]:
+        elif self.figure_type == c.FIGURE_TYPES[2]:
             if attrs_count == 2:
                 result = self.rectangle()
             else:
                 raise Exception(m.TWO_ARGS_REQUIRED)
-        elif self.figure_type == c.FIGURE_TYPES[2]:
+        elif self.figure_type == c.FIGURE_TYPES[4]:
             if attrs_count == 2 and self.trapezoid_h is not None:
                 result = self.trapezoid()
             else:
@@ -148,14 +148,3 @@ class Square:
         else:
             raise Exception(m.UNKNOWN_ERROR)
         return result
-
-
-def main():
-    sq = Square(first=3, second=4)
-    sq.figure_type = c.FIGURE_TYPES[1]
-    # sq.trapezoid_h = 5
-    print(sq.calculate())
-
-
-if __name__ == '__main__':
-    main()
