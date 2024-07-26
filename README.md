@@ -1,3 +1,12 @@
+<p align="center">
+    <img src="https://github.com/avanslov/square_calculator_library/actions/workflows/main.yml/badge.svg?event=push">
+    <a href="https://pypi.org/project/square-calculator-library/">
+        <img src="https://img.shields.io/badge/Pypi-Square_calculator_library-black?&logo=Pypi">
+    </a>
+
+</p>
+
+
 # Библиотека для Python для расчета площади геометрических фигур
 
 **Библиотека позволяет рассчитывать площадь геометрических фигур:**
@@ -21,7 +30,7 @@
 
 В установленное и активированное виртуальное окружение проекта необходимо импортировать библиотеку.
 ```
-pip install square-calculator-library==0.0.1
+pip install square-calculator-library
 ```
 **Импорт**
 ```
