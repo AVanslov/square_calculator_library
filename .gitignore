@@ -1,1 +1,5 @@
 /venv
+.pypirc
+/build
+/dist
+/square_calculator_library.egg-info
