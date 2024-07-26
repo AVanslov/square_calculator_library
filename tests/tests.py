@@ -1,11 +1,11 @@
-# import sys
+import sys
 
-# sys.path.append('../')
+sys.path.append('../')
 
 import unittest
 
-from square_calculator_library.square_calculator import constants
-from square_calculator_library.square_calculator import square
+from square_calculator import constants
+from square_calculator import square
 
 
 class TestSquareCalculator(unittest.TestCase):
