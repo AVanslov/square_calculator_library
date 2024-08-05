@@ -12,23 +12,23 @@ class TestSquareCalculator(unittest.TestCase):
 
     def test_ability_transmit_only_positive_numbers(self):
         values_results = (
-            # если встречаются отрицательные значения
-            # при передаче одного параметра
+            # if negative values occur
+            # when passing a single parameter
             ({'a': -500}, ValueError),
-            # при передаче двух параметров
+            # when passing two parameters
             ({'a': 1, 'b': -500}, ValueError),
-            # при передаче трёх параметров
+            # when passing three parameters
             ({'a': 1, 'b': -500, 'c': 50}, ValueError),
-            # при передаче четырёх параметров
+            # when passing four parameters
             ({'a': 1, 'b': -500, 'c': 50, 'd': -10}, ValueError),
-            # если встречаются нулевые значения
-            # при передаче одного параметра
+            # if zero values occur
+            # when passing a single parameter
             ({'a': 0}, ValueError),
-            # при передаче двух параметров
+            # when passing two parameters
             ({'a': 0, 'b': -500}, ValueError),
-            # при передаче трёх параметров
+            # when passing three parameters
             ({'a': 0, 'b': -500, 'c': 50}, ValueError),
-            # при передаче четырёх параметров
+            # when passing four parameters
             ({'a': 0, 'b': -500, 'c': 50, 'd': -10}, ValueError),
         )
         for value, expected_error in values_results:
@@ -60,19 +60,19 @@ class TestSquareCalculator(unittest.TestCase):
             return 0.5 * (a + b) * h
 
         values_results = (
-            # при передаче одного параметра - окружность
+            # when passing a single parameter, a circle
             ({'a': 10}, varification_circle_square(10)),
-            # при передаче двух параметров для элипса
+            # when passing two parameters for an ellipse
             (
                 {'a': 10, 'b': 500, 'figure_type': constants.FIGURE_TYPES[1]},
                 varification_ellipse_square(10, 500)
             ),
-            # при передаче двух параметров для прямоугольника
+            # when passing two parameters for a rectangle
             (
                 {'a': 10, 'b': 500, 'figure_type': constants.FIGURE_TYPES[2]},
                 varification_rectangle_square(10, 500)
             ),
-            # при передаче двух параметров и высоты для трапеции
+            # when passing two parameters and a height for a trapezoid
             (
                 {
                     'a': 10, 'b': 500, 'h': 50,
@@ -80,7 +80,7 @@ class TestSquareCalculator(unittest.TestCase):
                 },
                 varification_trapezoid_square(10, 500, 50)
             ),
-            # при передаче трёх параметров для треугольника
+            # when passing three parameters for a triangle
             (
                 {'a': 10, 'b': 500, 'с': 50},
                 verification_triangle_square(10, 500, 50)
@@ -113,19 +113,19 @@ class TestSquareCalculator(unittest.TestCase):
 
     def test_figure_type_definitions(self):
         values_results = (
-            # при передаче одного параметра - окружность
+            # when passing a single parameter, a circle
             ({'a': 10}, constants.FIGURE_TYPES[0]),
-            # при передаче двух параметров для элипса
+            # when passing two parameters for an ellipse
             (
                 {'a': 10, 'b': 500, 'figure_type': constants.FIGURE_TYPES[1]},
                 constants.FIGURE_TYPES[1]
             ),
-            # при передаче двух параметров для прямоугольника
+            # when passing two parameters for a rectangle
             (
                 {'a': 10, 'b': 500, 'figure_type': constants.FIGURE_TYPES[2]},
                 constants.FIGURE_TYPES[2]
             ),
-            # при передаче двух параметров и высоты для трапеции
+            # when passing two parameters and a height for a trapezoid
             (
                 {
                     'a': 10, 'b': 500, 'h': 50,
@@ -133,12 +133,12 @@ class TestSquareCalculator(unittest.TestCase):
                 },
                 constants.FIGURE_TYPES[4]
             ),
-            # при передаче трёх параметров для треугольника
+            # when passing three parameters for a triangle
             (
                 {'a': 10, 'b': 500, 'с': 50},
                 constants.FIGURE_TYPES[5]
             ),
-            # при передаче трёх параметров для прямоугольного треугольника
+            # when passing three parameters for a right-angled triangle
             (
                 {'a': 3, 'b': 4, 'с': 5},
                 constants.FIGURE_TYPES[3]
@@ -172,11 +172,11 @@ class TestSquareCalculator(unittest.TestCase):
 
     def test_assert_for_not_circle_or_triangle_without_figure_type(self):
         values_results = (
-            # без передачи параметров
+            # without passing parameters
             ({}, Exception),
-            # при передаче двух параметров
+            # when passing two parameters
             ({'a': 1, 'b': 500}, Exception),
-            # при передаче четырёх параметров
+            # when passing four parameters
             ({'a': 1, 'b': 500, 'c': 50, 'd': 10}, Exception),
         )
         for value, expected_error in values_results:

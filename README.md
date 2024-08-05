@@ -6,7 +6,127 @@
 
 </p>
 
+# EN
 
+# Python library for calculating the area of geometric shapes
+
+**The library allows you to calculate the area of geometric shapes:**
+- Without specifying the type of the calculated figure
+    - triangles on three sides;
+    - circles by radius;
+- Indicating the type of the calculated shape
+    - rectangle;
+    - Elipsa;
+    - trapezoids.
+
+It also allows you to determine the type of calculated shape, even when the shape type is not defined in compile time
+
+## Stack
+
+![Python](https://img.shields.io/badge/-Python-black?style=for-the-badge&logo=python)
+![Unittest](https://img.shields.io/badge/-Unittest-black?style=for-the-badge&logo=unittest)
+
+## Quick start
+**Installation**
+
+The library must be imported into the installed and activated virtual environment of the project.
+```
+pip install square-calculator-library
+```
+**Import**
+```
+from square_calculator.calculator import Square
+```
+
+**Application**
+```
+sq = Square(a=3, b=4, c=5)
+print(sq.calculate())
+>> 6.0
+print(sq.figure_type)
+>> 'rectangular triangle'
+```
+
+## How to use
+
+The library helps you calculate the area of a geometric shape.
+By default, it calculates the area of a triangle on three sides or a circle by radius.
+
+**At the moment, the library allows you to calculate the area of the following geometric shapes:**
+| Shape type | Necessary arguments | Instance Attributes | Example |
+| -- | -- | -- | -- |
+| Circle | radius | None | ```sq =Square(a=3)```<br>```>> sq.calculate()``` |
+| Triangle | a, b, c (lengths of three sides) | None | ```sq = Square(a=3, b=4, c=6)```<br>```>> sq.calculate()``` |
+| Right triangle | a, b, c (lengths of three sides) | None | ```sq = Square(a=3, b=4, c=5)```<br>```>> sq.calculate()``` |
+| Square | a, b | figure_type | ```sq = Square(a=3, b=4)```<br>```>> sq.figure_type = constants[2] #rectangle```<br>```>> sq.calculate()``` |
+| Ellipse | a, b | figure_type | ```sq = Square(a=3, b=4)```<br>```>> sq.figure_type = constants[1] #ellipse```<br>```>> sq.calculate()``` |
+| Trapezoid | a, b, h (base lengths and heights) | figure_type, trapezoid_h | ```sq = Square(a=3, b=4)```<br>```>> sq.figure_type = constants[4] #trapezoid```<br>```>> sq.trapezoid_h = 5```<br>```>> sq.calculate()``` |
+
+For the library to work correctly, when creating a class object, named arguments must be passed, the names can be arbitrary.
+
+When creating an object of the Square class, you can pass an unlimited number of parameters.
+This allows you to expand and refine the library by adding algorithms for calculating any geometric shapes and the ability to calculate the same geometric shapes in different ways.
+
+> [!IMPORTANT]
+> When creating an instance of the Square class, only named parameters must be passed
+> **Wrong:**
+> ```
+> sq = Square(3, 4, 5)
+> ```
+>
+> **That's right:**
+> ```
+> sq = Square(a=3, b=4, c=5)
+> ```
+
+Additionally calculates the area of an ellipse, rectangle, or trapezoid, respectively, if you redefine the instance attribute to the shape type:
+- 'ellipse';
+- 'rectangle';
+- 'trapezoid'.
+
+> [!TIP]
+> The shape type can be set using the FIGURE_TYPES tuple from the constants file.
+
+The library allows you to determine the type of the calculated shape after its calculation, even if the shape type was not set initially. The methods of the class will determine the type of the calculated shape themselves.
+
+**You can get the type through the figure_type attribute, for example, like this:**
+
+```
+sq = Square(a=3, b=4, c=5)
+
+print(sq.figure_type)
+
+>> 'rectangular triangle'
+```
+
+## Tests
+
+**The following tests have been written using the Unittest library:**
+
+- Checking that the expected error is returned when transmitting non-positive values.
+
+- Checking that the calculations correspond to the expected values when transmitting acceptable values.
+
+- Checking that when transmitting acceptable values, the shape type corresponds to the expected one.
+
+- Checking that an error is returned when trying to calculate the area of any geometric shapes except a triangle and a circle without assigning attributes to the instance of the figure_type and trapezoid_h parameters.
+
+**How to run the tests**
+
+1. Go to the tests directory `cd tests`;
+2. Run the command `python3 tests.py `.
+
+## Author
+
+**Alexander Buchelnikov**
+
+[![Personal-Website](https://img.shields.io/badge/-Personal_website-black?style=for-the-badge&logo=)](https://buchelnikov.ddns.net/)
+[![Telegram](https://img.shields.io/badge/-Telegram-black?style=for-the-badge&logo=Telegram)](https://t.me/aleksandr_buchelnikov)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-black?style=for-the-badge&logo=LinkedIn)](https://www.linkedin.com/in/aleksandr-buchelnikov/)
+[![E-mail](https://img.shields.io/badge/-E_mail-black?style=for-the-badge&logo=Gmail)](mailto:al.buchelnikov@gmail.com)
+
+
+# RU
 # Библиотека для Python для расчета площади геометрических фигур
 
 **Библиотека позволяет рассчитывать площадь геометрических фигур:**
